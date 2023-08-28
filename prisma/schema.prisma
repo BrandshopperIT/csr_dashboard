@@ -1,0 +1,152 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  
+}
+
+model Reps {
+  id Int @id @default(autoincrement())
+  rep_name String?
+  initials String?
+  active Boolean?
+  email String?
+  unresreps UnresOA[] @relation("unresrep")
+  unresauditors UnresOA[] @relation("unresauditor")
+  unresrep_b UnresOA[] @relation("unresreptwo")
+  reqby_refund RefundSheet[] @relation("refundreq")
+  refby_refund RefundSheet[] @relation("refundref")
+  therep TracerReq[] @relation("tracerrep")
+  therepsubmit TracerReq[] @relation("tracersubmit")
+  reqby_replacement ReplacementSent[] @relation("reqbyrepl")
+  reqby_ccsheet CCSheet[] @relation("reqbyccs")
+  procby_ccsheet CCSheet[] @relation("procbyccs")
+  rep_users Users[] @relation("repuserid")
+  
+  
+
+
+
+}
+
+model UnresOA {
+  id Int @id @default(autoincrement()) 
+  status String?
+  order String?
+  last_audit String?
+  date String?
+  date_submitted String?
+  refund_amount String?
+  source String?
+  rep Reps? @relation(fields: [repId], references: [id],name:"unresrep")
+  repId Int?
+  ord_balance String?
+  denial_reason_error_issue String?
+  auditor Reps? @relation(fields: [auditorId], references: [id],name:"unresauditor")
+  auditorId Int?
+  date_reviewed String?
+  reptwo Reps? @relation(fields: [reptwoId], references:[id],name:"unresreptwo")
+  reptwoId Int?
+  corrected Boolean?
+  resub Boolean?
+  correction_comments String?
+  disabled Boolean
+  disabled_by Int?
+}
+
+
+
+model ReplacementSent {
+  id Int @id @default(autoincrement())
+  status String?
+  reqdate String?
+  ordernumber String?
+  replacement Boolean?
+  refund Boolean?
+  trackinginfo String?
+  requestedby Reps? @relation(fields: [requestedbyId], references: [id],name:"reqbyrepl")
+  requestedbyId Int?
+  notes String?
+  trackingstatus String?
+  disabled Boolean @default(false)
+  disabled_by Int?
+}
+
+model RefundSheet {
+  id Int @id @default(autoincrement())
+  status String?
+  reqdate String?
+  ordernumber String?
+  refund_amount String?
+  source String?
+  requestedby Reps? @relation(fields: [requestedbyId], references:[id],name:"refundreq")
+  requestedbyId Int?
+  date_refund String?
+  amount_refund String?
+  refundedby Reps? @relation(fields: [refundedbyId], references: [id],name:"refundref")
+  refundedbyId Int?
+  notes String?
+  disabled Boolean @default(false)
+  disabled_by Int?
+}
+
+model CCSheet {
+  id Int @id @default(autoincrement())
+  status String?
+  reqdate String?
+  ordernumber String?
+  amountdue String?
+  channel String?
+  requestedby Reps? @relation(fields: [requestedbyId], references: [id],name:"reqbyccs")
+  requestedbyId Int?
+  cardholdername String?
+  cardnum String?
+  expiration String?
+  cvc String?
+  authdate String?
+  processedby Reps? @relation(fields: [processedbyid], references: [id],name:"procbyccs")
+  processedbyid Int?
+  notes String?
+  disabled Boolean @default(false)
+  disabled_by Int?
+
+}
+
+model TracerReq {
+  id Int @id @default(autoincrement())
+  status String?
+  reqdate String?
+  ordernum String?
+  therep Reps? @relation(fields: [therepId], references: [id],name:"tracerrep")
+  therepId Int?
+  comments String?
+  odooresolved Boolean?
+  replacerefundok String?
+  comments2 String?
+  claimsubmitted String?
+  submit Reps? @relation(fields: [submitId], references: [id],name:"tracersubmit")
+  submitId Int?
+  notes String?
+  disabled Boolean @default(false)
+  disabled_by Int?
+}
+
+model Users {
+  id Int @id @default(autoincrement())
+  firstName String?
+  lastName String
+  email String
+  password String?
+  cc_password String?
+  admin Boolean
+  rep_user Reps? @relation(fields: [rep_userid], references: [id],name:"repuserid")
+  rep_userid Int?
+}

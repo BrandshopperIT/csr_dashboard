@@ -1,0 +1,16 @@
+.navbar {
+  background-color: white !important;
+}
+
+.container {
+  position: sticky;
+  margin-top: 60px !important;
+  z-index: 1 !important;
+}
+
+.logo {
+  width: 210.34px;
+  height: 130px;
+  position: absolute;
+  margin-top: -100px;
+}

@@ -1,0 +1,45 @@
+.datatable {
+  /* background-color: red; */
+}
+.loading {
+  color: rgb(92, 8, 8);
+  margin-left: 50%;
+  margin-top: 20%;
+}
+
+.greendot {
+  color: green;
+}
+.reddot {
+  color: red;
+}
+.graydot {
+  color: rgb(78, 78, 78);
+}
+
+.dtable {
+}
+
+.lock {
+  margin-left: 60%;
+}
+.unlock {
+  margin-left: 60%;
+}
+.alert {
+  position: absolute;
+  margin-left: 520px !important;
+  /* background-color: rgb(131, 70, 70); */
+}
+
+.addbutton {
+  background-color: black !important;
+  border-color: transparent !important;
+  border-radius: 78px !important;
+  width: 68px;
+  height: 10px;
+  margin-left: 90% !important;
+  margin-top: 2%;
+
+  box-shadow: 2px 5px 5px #888888;
+}

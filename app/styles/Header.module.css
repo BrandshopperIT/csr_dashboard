@@ -1,0 +1,10 @@
+.navbar {
+  background-color: white !important;
+}
+.navbardropdown {
+  content: none;
+}
+
+.navbar .nav > li > .dropdown-toggle::after {
+  display: none;
+}

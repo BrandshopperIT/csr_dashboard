@@ -1,0 +1,28 @@
+.greendot {
+  color: green;
+}
+.reddot {
+  color: red;
+}
+
+.redsection {
+  background-color: #ffc4c2;
+  box-shadow: 0px 0px 5px 0.2px #69544a;
+}
+
+.bluesection {
+  background-color: #cfe9ff;
+  box-shadow: 0px 0px 5px 0.2px #69544a;
+}
+
+.addbutton {
+  background-color: black !important;
+  border-color: transparent !important;
+  border-radius: 78px !important;
+  width: 68px;
+  height: 10px;
+  margin-left: 90% !important;
+  margin-top: 2%;
+
+  box-shadow: 2px 5px 5px #888888;
+}

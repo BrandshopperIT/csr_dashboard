@@ -1,0 +1,32 @@
+.orderalert {
+  position: absolute;
+  margin-left: 550px !important;
+  margin-top: -365px !important;
+  animation: shake 0.5s;
+
+  /* background-color: rgb(131, 70, 70); */
+}
+.repalert {
+  position: absolute;
+  margin-left: 550px !important;
+  margin-top: -245px !important;
+  animation: shake 0.5s;
+
+  /* background-color: rgb(131, 70, 70); */
+}
+.rep2alert {
+  position: absolute;
+  margin-left: 550px !important;
+  margin-top: -150px !important;
+  animation: shake 0.5s;
+
+  /* background-color: rgb(131, 70, 70); */
+}
+.audalert {
+  position: absolute;
+  margin-left: 550px !important;
+  margin-top: -45px !important;
+  animation: shake 0.5s;
+
+  /* background-color: rgb(131, 70, 70); */
+}
