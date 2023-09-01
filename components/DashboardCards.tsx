@@ -12,6 +12,7 @@ import Card from 'react-bootstrap/Card';
 import { Dock } from 'primereact/dock';
 import styles from './styles/DashboardMenuCards.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
 
 export default function DashboardMenuCards() {
   const imgPath = 'images/dock';
@@ -75,91 +76,89 @@ export default function DashboardMenuCards() {
       ),
     },
   ];
+
+
+  const cardcss = () => {}
+  const [showtracer,setshowtracer] = useState(false)
+  const tracershowon = () => setshowtracer(true)
+  const tracershowoff = () => setshowtracer(false)
+
   return (
     <>
       {/* Button Menu Container */}
-      {/* <Container
+      <Container
         style={{
           position: 'absolute',
           top: '25%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
+          marginTop: '160px'
         }}
       >
         <Row>
-          <Col>
-            <Card style={{ width: '17rem' }}>
+          
+          <Col >
+          <a style={{color:'white'}} href=''>
+            <Card style={{ width: '14rem' }}  className={styles.thecards}>
+              <Card.Img style={{width: '100%' } } src='/groups.svg'></Card.Img>
               <Card.Body>
                 <Card.Title>Unresolved Open Accounts</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-                <Button variant='dark' href='/unres'>
-                  Access
-                </Button>
+              
+               
               </Card.Body>
             </Card>
+            </a>
           </Col>
+          
           <Col>
-            <Card style={{ width: '14rem' }}>
+          <a style={{color:'white'}} href=''>
+            <Card style={{ width: '14rem' }} className={styles.thecards}>
+            <Card.Img src='/creditcard.svg'></Card.Img>
               <Card.Body>
                 <Card.Title>CC Sheet</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-                <Button variant='dark' href='/ccsheet'>
-                  Access
-                </Button>
+               
               </Card.Body>
             </Card>
+            </a>
           </Col>
           <Col>
-            <Card style={{ width: '14rem' }}>
+          <a style={{color:'white'}} href=''>
+            <Card style={{ width: '14rem' }} className={styles.thecards}>
+            <Card.Img src='/money.svg'></Card.Img>
+
               <Card.Body>
                 <Card.Title>Refund Sheet</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-                <Button variant='dark' href='/refund'>
-                  Access
-                </Button>
+              
               </Card.Body>
             </Card>
+            </a>
           </Col>
           <Col>
-            <Card style={{ width: '14rem' }}>
+          <a style={{color:'white'}} href=''>
+            <Card style={{ width: '14rem' }} className={styles.thecards}>
+            <Card.Img style={ {marginLeft:'-21px'}} src='/tracer.svg'></Card.Img>
+
               <Card.Body>
-                <Card.Title>Tracer Request</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-                <Button variant='dark' href='/tracer'>
-                  Access
-                </Button>
+                <Card.Title >Tracer Request</Card.Title>
+               
               </Card.Body>
             </Card>
+            </a>
           </Col>
           <Col>
-            <Card style={{ width: '14rem' }}>
+          <a style={{color:'white'}} href=''>
+            <Card style={{ width: '14rem' }} className={styles.thecards}>
+            <Card.Img src='/truck.svg'></Card.Img>
+
               <Card.Body>
                 <Card.Title>Replacements Sent</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-                <Button variant='dark' href='/replacement'>
-                  Access
-                </Button>
+             
               </Card.Body>
             </Card>
+            </a>
           </Col>
         </Row>
-      </Container> */}
-      <Dock className={styles.dock} model={items} />
+      </Container>
     </>
   );
 }

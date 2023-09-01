@@ -2,3 +2,13 @@
   height: 180px !important;
   width: 170px !important;
 }
+.thecards {
+  border: none !important;
+}
+
+.thecards:hover{
+  /* border-style: solid !important; */
+  box-shadow: 12px 8px 26px rgba(105, 88, 88, 0.274) ;
+
+}
+

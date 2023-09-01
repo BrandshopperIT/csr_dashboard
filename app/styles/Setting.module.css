@@ -1,0 +1,58 @@
+.dock {
+  margin-top: 250px;
+}
+.previewModal {
+  margin-top: 520px;
+}
+.previewModaldt {
+  margin-top: 630px;
+}
+
+/* :root {
+  --theme: white;
+  --theme_opacity: 0.5;
+  --theme_fontcolor: black;
+} */
+.dtable {
+  /* background-color: red !important; */
+  /* background: red !important; */
+  color: red !important;
+}
+/* 
+.menubar {
+  background-color: var(--theme) !important;
+}
+
+.menubartext {
+  color: black;
+} */
+
+.mainname {
+  color: red;
+}
+
+.sketchPicker {
+  display: flex;
+  flex-direction: row;
+}
+.sketchPickermenu {
+}
+.sketchPickerfont {
+  position: absolute;
+  margin-left: 240px !important;
+}
+
+.customModaldiv {
+  display: flex !important;
+}
+
+.modal-dialog {
+  margin: auto;
+}
+/* .modal-xl {
+  width: 500px !important;
+} */
+
+.customModal {
+  /* width: 50px; */
+}
