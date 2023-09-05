@@ -98,7 +98,7 @@ export default function DashboardMenuCards() {
         <Row>
           
           <Col >
-          <a style={{color:'white'}} href=''>
+          <a style={{color:'white'}} href='/unres'>
             <Card style={{ width: '14rem' }}  className={styles.thecards}>
               <Card.Img style={{width: '100%' } } src='/groups.svg'></Card.Img>
               <Card.Body>
@@ -111,7 +111,7 @@ export default function DashboardMenuCards() {
           </Col>
           
           <Col>
-          <a style={{color:'white'}} href=''>
+          <a style={{color:'white'}} href='/ccsheet'>
             <Card style={{ width: '14rem' }} className={styles.thecards}>
             <Card.Img src='/creditcard.svg'></Card.Img>
               <Card.Body>
@@ -122,7 +122,7 @@ export default function DashboardMenuCards() {
             </a>
           </Col>
           <Col>
-          <a style={{color:'white'}} href=''>
+          <a style={{color:'white'}} href='/refund'>
             <Card style={{ width: '14rem' }} className={styles.thecards}>
             <Card.Img src='/money.svg'></Card.Img>
 
@@ -134,9 +134,9 @@ export default function DashboardMenuCards() {
             </a>
           </Col>
           <Col>
-          <a style={{color:'white'}} href=''>
+          <a style={{color:'white'}} href='tracer'>
             <Card style={{ width: '14rem' }} className={styles.thecards}>
-            <Card.Img style={ {marginLeft:'-21px'}} src='/tracer.svg'></Card.Img>
+            <Card.Img src='/tracer.svg'></Card.Img>
 
               <Card.Body>
                 <Card.Title >Tracer Request</Card.Title>
@@ -146,7 +146,7 @@ export default function DashboardMenuCards() {
             </a>
           </Col>
           <Col>
-          <a style={{color:'white'}} href=''>
+          <a style={{color:'white'}} href='/replacement'>
             <Card style={{ width: '14rem' }} className={styles.thecards}>
             <Card.Img src='/truck.svg'></Card.Img>
 
