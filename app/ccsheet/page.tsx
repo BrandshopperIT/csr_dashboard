@@ -98,15 +98,15 @@ export default function CCsheet() {
       disabled_by: null,
       disabled: false,
     };
-    if (modifiedModalData) {
-      localStorage.setItem(
-        'selectedModalDataref',
-        JSON.stringify(modifiedModalData)
-      );
-      console.log(modifiedModalData);
-    } else {
-      console.log('No modal data found for mdId:', id);
-    }
+    // if (modifiedModalData) {
+    //   localStorage.setItem(
+    //     'selectedModalDataref',
+    //     JSON.stringify(modifiedModalData)
+    //   );
+    //   console.log(modifiedModalData);
+    // } else {
+    //   console.log('No modal data found for mdId:', id);
+    // }
 
     window.location.reload();
   };
@@ -236,18 +236,7 @@ export default function CCsheet() {
   //Filters for each column.
   const [filters, setFilters] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    status: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    ordernumber: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    amountdue: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    channel: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    requestedbyId: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    cardholdername: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    cardnum: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    expiration: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    cvc: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    authdate: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    processedbyid: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    notes: { value: null, matchMode: FilterMatchMode.CONTAINS },
+    ordernumber: { value: null, matchMode: FilterMatchMode.CONTAINS },
   });
 
   // useEffect(() => {
@@ -334,11 +323,10 @@ export default function CCsheet() {
     return (
       <div className='flex justify-content-end'>
         <span className='p-input-icon-left'>
-          <i className='pi pi-search' />
           <InputText
             value={globalFilterValue}
             onChange={onGlobalFilterChange}
-            placeholder='Keyword Search'
+            placeholder='Order Number Search'
           />
         </span>
       </div>
@@ -469,14 +457,7 @@ export default function CCsheet() {
             selectionMode='single'
             onRowSelect={rowselected}
             //TODO:STOPPED HERE BEFORE LUNCH. FIX THE FILTER SEARCHER TO REFLECT REFUND
-            globalFilterFields={[
-              'status',
-              'ordernumber',
-              'amountdue',
-              'channel',
-              'requestedbyId',
-              'cardholdername',
-            ]}
+            globalFilterFields={['ordernumber']}
             filterDisplay='menu'
             className={styles.dtable}
             rowsPerPageOptions={[5, 10, 25, 50]}

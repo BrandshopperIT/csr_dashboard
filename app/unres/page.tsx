@@ -149,15 +149,15 @@ export default function Unres() {
       disabled_by: null,
       disabled: false,
     };
-    if (modifiedModalData) {
-      localStorage.setItem(
-        'selectedModalData',
-        JSON.stringify(modifiedModalData)
-      );
-      console.log(modifiedModalData);
-    } else {
-      console.log('No modal data found for mdId:', id);
-    }
+    // if (modifiedModalData) {
+    //   localStorage.setItem(
+    //     'selectedModalData',
+    //     JSON.stringify(modifiedModalData)
+    //   );
+    //   console.log(modifiedModalData);
+    // } else {
+    //   console.log('No modal data found for mdId:', id);
+    // }
     setTimeout(() => {
       window.location.reload();
     }, 500);
@@ -250,9 +250,10 @@ export default function Unres() {
         window.alert(error);
         return;
       });
+    window.location.reload();
+
     }
 
-    window.location.reload();
   }
   //^^HANDLESUBMISSION - This area handles the submission into the database. This is only for updating records and NOT creating new ones. **********************************
 
@@ -314,6 +315,7 @@ export default function Unres() {
         ...parsedModalData,
         disabled: !parsedModalData.disabled,
       };
+      
       setcacheModal([modifiedModalData]);
 
       if (storedModalData != null) {
@@ -339,7 +341,6 @@ export default function Unres() {
     return (
       <div className='flex justify-content-end'>
         <span className='p-input-icon-left'>
-          <i className='pi pi-search' />
           <InputText
             value={globalFilterValue}
             onChange={onGlobalFilterChange}

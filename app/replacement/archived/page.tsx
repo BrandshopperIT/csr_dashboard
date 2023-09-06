@@ -48,7 +48,7 @@ export default function Replacement() {
     const new_stuff = stuff.map((oldstuff: any) => ({
       ...oldstuff,
 
-      reqdate: oldstuff.reqdate === null ? null : new Date(oldstuff.reqdate),
+      reqdate: oldstuff.reqdate === null || oldstuff.reqdate === '' ? null : new Date(oldstuff.reqdate),
     }));
 
     setreplacedata(new_stuff);
@@ -109,15 +109,15 @@ export default function Replacement() {
       disabled_by: null,
       disabled: false,
     };
-    if (modifiedModalData) {
-      localStorage.setItem(
-        'selectedModalDataref',
-        JSON.stringify(modifiedModalData)
-      );
-      console.log(modifiedModalData);
-    } else {
-      console.log('No modal data found for mdId:', id);
-    }
+    // if (modifiedModalData) {
+    //   localStorage.setItem(
+    //     'selectedModalDataref',
+    //     JSON.stringify(modifiedModalData)
+    //   );
+    //   console.log(modifiedModalData);
+    // } else {
+    //   console.log('No modal data found for mdId:', id);
+    // }
 
     window.location.reload();
   };
@@ -204,9 +204,9 @@ export default function Replacement() {
         window.alert(error);
         return;
       });
+      window.location.reload();
     }
 
-    // window.location.reload();
   }
   //^^HANDLESUBMISSION - This area handles the submission into the database. This is only for updating records and NOT creating new ones. **********************************
 
@@ -303,11 +303,11 @@ export default function Replacement() {
     return (
       <div className='flex justify-content-end'>
         <span className='p-input-icon-left'>
-          <i className='pi pi-search' />
+          
           <InputText
             value={globalFilterValue}
             onChange={onGlobalFilterChange}
-            placeholder='Keyword Search'
+            placeholder='Order Number Search'
           />
           <h2 className={styles.replacementname}>Replacements Sent</h2>
         </span>

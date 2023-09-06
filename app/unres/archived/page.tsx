@@ -151,15 +151,15 @@ export default function Unres() {
       disabled_by: null,
       disabled: false,
     };
-    if (modifiedModalData) {
-      localStorage.setItem(
-        'selectedModalData',
-        JSON.stringify(modifiedModalData)
-      );
-      console.log(modifiedModalData);
-    } else {
-      console.log('No modal data found for mdId:', id);
-    }
+    // if (modifiedModalData) {
+    //   localStorage.setItem(
+    //     'selectedModalData',
+    //     JSON.stringify(modifiedModalData)
+    //   );
+    //   console.log(modifiedModalData);
+    // } else {
+    //   console.log('No modal data found for mdId:', id);
+    // }
     setTimeout(() => {
       window.location.reload();
     }, 500);

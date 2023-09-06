@@ -55,9 +55,9 @@ export default function Refund() {
     const new_stuff = stuff.map((oldstuff: any) => ({
       ...oldstuff,
 
-      reqdate: oldstuff.date === null ? null : new Date(oldstuff.reqdate),
+      reqdate: oldstuff.reqdate === null || oldstuff.reqdate === '' ? null : new Date(oldstuff.reqdate),
       date_refund:
-        oldstuff.last_audit === null ? null : new Date(oldstuff.date_refund),
+        oldstuff.date_refund === null || oldstuff.date_refund === '' ? null : new Date(oldstuff.date_refund),
     }));
 
     setrefunddata(new_stuff);
@@ -110,15 +110,15 @@ export default function Refund() {
       disabled_by: null,
       disabled: false,
     };
-    if (modifiedModalData) {
-      localStorage.setItem(
-        'selectedModalDataref',
-        JSON.stringify(modifiedModalData)
-      );
-      console.log(modifiedModalData);
-    } else {
-      console.log('No modal data found for mdId:', id);
-    }
+    // if (modifiedModalData) {
+    //   localStorage.setItem(
+    //     'selectedModalDataref',
+    //     JSON.stringify(modifiedModalData)
+    //   );
+    //   console.log(modifiedModalData);
+    // } else {
+    //   console.log('No modal data found for mdId:', id);
+    // }
 
     window.location.reload();
   };
@@ -184,9 +184,10 @@ export default function Refund() {
         window.alert(error);
         return;
       });
+      window.location.reload();
     }
 
-    window.location.reload();
+    
   }
   async function handleRecLock(state: boolean, id: any, userid: any) {
     const update = {
@@ -230,15 +231,9 @@ export default function Refund() {
   //Filters for each column.
   const [filters, setFilters] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    status: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    ordernumber: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    amount_refund: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    reqdate: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    date_refund: { value: null, matchMode: FilterMatchMode.EQUALS },
-    reqname: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    source: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    refname: { value: null, matchMode: FilterMatchMode.EQUALS },
-    notes: { value: null, matchMode: FilterMatchMode.CONTAINS },
+   
+    ordernumber: { value: null, matchMode: FilterMatchMode.CONTAINS },
+
   });
 
   // useEffect(() => {
@@ -306,11 +301,10 @@ export default function Refund() {
     return (
       <div className='flex justify-content-end'>
         <span className='p-input-icon-left'>
-          <i className='pi pi-search' />
           <InputText
             value={globalFilterValue}
             onChange={onGlobalFilterChange}
-            placeholder='Keyword Search'
+            placeholder='Order Number Search'
           />
         </span>
       </div>
@@ -504,17 +498,7 @@ export default function Refund() {
             selectionMode='single'
             onRowSelect={rowselected}
             //TODO:STOPPED HERE BEFORE LUNCH. FIX THE FILTER SEARCHER TO REFLECT REFUND
-            globalFilterFields={[
-              'source',
-              'ordernumber',
-              'status',
-              'reqdate',
-              'date_refund',
-              'amount_refund',
-              'refname',
-              'reqname',
-              'notes',
-            ]}
+            globalFilterFields={['ordernumber']}
             filterDisplay='menu'
             className={styles.dtable}
             rowsPerPageOptions={[5, 10, 25, 50]}

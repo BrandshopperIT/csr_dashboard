@@ -92,11 +92,7 @@ export default function Header() {
               icon: 'pi pi-fw pi-pencil',
               url: '/settings',
             },
-            {
-              label: 'Audit Log',
-              icon: 'pi pi-fw pi-book',
-              url: '/audit-log',
-            },
+           
           ],
         },
         {

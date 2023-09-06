@@ -44,7 +44,7 @@ export default function Tracer() {
     const new_stuff = stuff.map((oldstuff: any) => ({
       ...oldstuff,
 
-      reqdate: oldstuff.date === null ? null : new Date(oldstuff.reqdate),
+      reqdate: oldstuff.reqdate === null || oldstuff.reqdate === '' ? null : new Date(oldstuff.reqdate),
     }));
 
     settracerdata(new_stuff);
@@ -98,15 +98,15 @@ export default function Tracer() {
       disabled_by: null,
       disabled: false,
     };
-    if (modifiedModalData) {
-      localStorage.setItem(
-        'selectedModalDataref',
-        JSON.stringify(modifiedModalData)
-      );
-      console.log(modifiedModalData);
-    } else {
-      console.log('No modal data found for mdId:', id);
-    }
+    // if (modifiedModalData) {
+    //   localStorage.setItem(
+    //     'selectedModalDataref',
+    //     JSON.stringify(modifiedModalData)
+    //   );
+    //   console.log(modifiedModalData);
+    // } else {
+    //   console.log('No modal data found for mdId:', id);
+    // }
 
     window.location.reload();
   };
@@ -171,9 +171,9 @@ export default function Tracer() {
         window.alert(error);
         return;
       });
+      window.location.reload();
     }
 
-    window.location.reload();
   }
   async function handleRecLock(state: boolean, id: any, userid: any) {
     const update = {
@@ -297,11 +297,11 @@ export default function Tracer() {
     return (
       <div className='flex justify-content-end'>
         <span className='p-input-icon-left'>
-          <i className='pi pi-search' />
+          
           <InputText
             value={globalFilterValue}
             onChange={onGlobalFilterChange}
-            placeholder='Keyword Search'
+            placeholder='Order Number Search'
           />
         </span>
       </div>
@@ -469,19 +469,7 @@ export default function Tracer() {
             filters={filters}
             selectionMode='single'
             onRowSelect={rowselected}
-            globalFilterFields={[
-              'source',
-              'ordernum',
-              'status',
-              'last_audit',
-              'date',
-              'date_submitted',
-              'refund_amount',
-              'repId',
-              'ord_balance',
-              'repTwoId',
-              'auditorId',
-            ]}
+            globalFilterFields={['ordernum']}
             filterDisplay='menu'
             className={styles.dtable}
             rowsPerPageOptions={[5, 10, 25, 50]}

@@ -170,19 +170,13 @@ export default function Setting() {
 
   const items = [
     {
-      label: 'Finder',
+      label: 'Users',
       icon: () => <img alt='Users' src='user.svg' width='90%' height='90%' />,
       command: () => {
         setopenuser(true);
       },
     },
-    {
-      label: 'Customize',
-      icon: () => <img alt='Customize' src='custom.svg' width='100%' />,
-      command: () => {
-        setcustomize(true);
-      },
-    },
+    
   ];
 
   const itemsMenu: MenuItem[] = [
@@ -439,7 +433,8 @@ export default function Setting() {
                   </Button>
                 </Modal.Footer>
               </Modal>
-              <div className={styles.customModaldiv}>
+              {/* //PLANNED TO IMPLEMENT A CUSTOM COLOR SCHEME FEATURE BUT RAN OUT OF TIME */}
+              {/* <div className={styles.customModaldiv}>
                 <Modal
                   show={customize}
                   className={styles.customModal}
@@ -569,7 +564,7 @@ export default function Setting() {
                     </Container>
                   </Navbar>
                 </Modal.Body>
-              </Modal>
+              </Modal> */}
               <Dock model={items} className={styles.dock} position={'left'} />
             </div>
           </div>
